@@ -5,6 +5,8 @@ sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
 base-version: '23.08'
 command: gb-studio
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node18
 finish-args:
   - --filesystem=host:rw
   - --socket=x11
@@ -14,23 +16,29 @@ finish-args:
 modules:
   - name: gb-studio
     buildsystem: simple
+    build-options:
+        append-path: /usr/lib/sdk/node18/bin
+        env:
+            CHROMEDRIVER_SKIP_DOWNLOAD: 'true'
+            XDG_CACHE_HOME: /run/build/gb-studio/flatpak-node/cache
+            npm_config_nodedir: '/usr/lib/sdk/node18'
+            npm_config_offline: 'true'
     build-commands:
-      - chmod +x gb-studio-linux.AppImage
-      - ./gb-studio-linux.AppImage --appimage-extract
-      - cp -r squashfs-root/usr/lib/gb-studio $FLATPAK_DEST/lib
-      - install -Dm755 gb-studio -t $FLATPAK_DEST/bin
-      - install -Dm644 dev.gbstudio.gb-studio.png -t $FLATPAK_DEST/share/icons/hicolor/128x128/apps
+      - HOME=$PWD yarn config --offline set yarn-offline-mirror $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
+      - HOME=$PWD yarn --offline
+      - HOME=$PWD PATH=$PATH yarn --offline make:linux
+      - HOME=$PWD yarn --offline install
+      - install -Dm755 gb-studio -t $FLATPAK_DEST/bin/
+      - install -Dm644 dev.gbstudio.gb-studio.png -t $FLATPAK_DEST/share/icons/hicolor/512x512/apps
       - install -Dm644 dev.gbstudio.gb-studio.desktop -t $FLATPAK_DEST/share/applications
       - install -Dm644 dev.gbstudio.gb-studio.metainfo.xml -t $FLATPAK_DEST/share/metainfo
     sources:
-      - type: file
-        url: https://github.com/chrismaltby/gb-studio/releases/download/v3.1.0/gb-studio-linux.AppImage
-        sha256: bc793bac36d0b14faa3d27611ffdf8393bd2e231b9c9bc8f12bf594e5e19531b
-        x-checker-data:
-            type: json
-            url: https://api.github.com/repos/chrismaltby/gb-studio/releases/latest
-            version-query: .tag_name
-            url-query: .assets[] | select(.name=="gb-studio-linux.AppImage") | .browser_download_url
+      - type: git
+        url: https://github.com/chrismaltby/gb-studio.git
+        tag: v3.1.0
+      - generated-sources.json
+      - type: patch
+        path: rm-packages.patch
       - type: script
         dest-filename: gb-studio
         commands:
