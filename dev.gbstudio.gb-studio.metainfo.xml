@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <component type="desktop">
-  <!--Created with jdAppStreamEdit 6.0-->
+  <!--Created with jdAppStreamEdit 8.0-->
   <id>dev.gbstudio.gb-studio</id>
   <name>GB Studio</name>
   <summary>A quick and easy to use drag and drop retro game creator for Game Boy</summary>
@@ -29,6 +29,51 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="3.2.0" date="2024-01-29" type="stable">
+      <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.2.0</url>
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>Add ability to choose timer context in timer events allowing up to four timers to be used per scene</li>
+          <li>Add event "If Current Scene Is" to allow conditionally running scripts based on the current scene</li>
+          <li>Add ability to set background tile priority for Color games using Priorty tool in colorize section. Priority tiles appear above sprites</li>
+          <li>Add support for UGE v6 to music editor</li>
+          <li>Subpattern editor added to Instrument Editor</li>
+          <li>Add warning when trying to reuse background from a logo scene</li>
+          <li>Add descriptive README files to asset folders in new projects</li>
+          <li>Add slope brush when drawing collisions</li>
+          <li>Add magic brush when painting tiles and drawing collisions, updates all tiles matching the one clicked</li>
+          <li>Add support for slopes to platform scenes</li>
+          <li>Add ability to make Analogue Pocket builds using CLI tool</li>
+          <li>Add warning when using engine plugins built on older versions of GB Studio</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>Updated Simplified Chinese localisation</li>
+          <li>Updated Polish localisation</li>
+          <li>Update to latest GBVM</li>
+          <li>Rename "Obj Palette" in sprite editor to "Monochrome Palette" to make its purpose clearer, now includes palette preview</li>
+          <li>Allow actor fields that aren't named "actorId" or "otherActorId" to be in custom scripts</li>
+          <li>Fix issue where editing a variable's name in sidebar would sometimes cause a different variable to become selected</li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>Fixed issue where piano roll would scroll vertically when switching patterns</li>
+          <li>Fix issue where editing a custom script could cause variables to switch back to pass by reference</li>
+          <li>Fix issue where loading a scene containing projectiles or dynamically modified sprites could cause graphical corruption</li>
+          <li>Fix issue where script event title would show wrong local variable name for scenes</li>
+          <li>Fix muting bug with FXH parser</li>
+          <li>Fix issue where Animation State value for projectiles was being ignored</li>
+          <li>Fix issue where falling on to ladder while holding dpad down could sometimes cause player to get stuck</li>
+          <li>Fix bounds check for right screen edge when player isn't 16px wide</li>
+          <li>Fix VM_REPLACE_TILE_XY to allow tiles larger than 255 for logo scene type</li>
+        </ul>
+        <p>Performance</p>
+        <ul>
+          <li>Performance improvements in ScriptEditorEventHelper, no longer rerenders all scenes when updating</li>
+        </ul>
+      </description>
+    </release>
     <release version="v3.1.0" date="2022-09-11" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.1.0</url>
       <description>
