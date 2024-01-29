@@ -24,13 +24,13 @@ modules:
       - install -Dm644 dev.gbstudio.gb-studio.metainfo.xml -t $FLATPAK_DEST/share/metainfo
     sources:
       - type: file
-        url: https://github.com/chrismaltby/gb-studio/releases/download/v3.1.0/gb-studio-linux.AppImage
-        sha256: bc793bac36d0b14faa3d27611ffdf8393bd2e231b9c9bc8f12bf594e5e19531b
+        url: https://github.com/chrismaltby/gb-studio/releases/download/v3.2.0/gb-studio-linux.AppImage
+        sha256: 26d6780ee976635f69232052d14cf93a7821b2a15a0d14b92c2a06ed4c6b29ed
         x-checker-data:
-            type: json
-            url: https://api.github.com/repos/chrismaltby/gb-studio/releases/latest
-            version-query: .tag_name
-            url-query: .assets[] | select(.name=="gb-studio-linux.AppImage") | .browser_download_url
+          type: json
+          url: https://api.github.com/repos/chrismaltby/gb-studio/releases/latest
+          version-query: .tag_name
+          url-query: .assets[] | select(.name=="gb-studio-linux.AppImage") | .browser_download_url
       - type: script
         dest-filename: gb-studio
         commands:
