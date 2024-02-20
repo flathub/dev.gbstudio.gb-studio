@@ -5,8 +5,9 @@
   <name>GB Studio</name>
   <summary>A quick and easy to use drag and drop retro game creator for Game Boy</summary>
   <summary xml:lang="de">Ein schneller und einfach zu bedienender Drag-and-Drop-Retrospielentwickler für den Game Boy</summary>
-  <developer_name>Chris Maltby</developer_name>
-  <launchable type="desktop-id">dev.gbstudio.gb-studio.desktop</launchable>
+  <developer id="com.chrismaltby">
+    <name>Chris Maltby</name>
+  </developer>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <description>
@@ -224,6 +225,7 @@
     <control>keyboard</control>
   </recommends>
   <content_rating type="oars-1.1"/>
+  <launchable type="desktop-id">dev.gbstudio.gb-studio.desktop</launchable>
   <provides>
     <binary>gb-studio</binary>
   </provides>
