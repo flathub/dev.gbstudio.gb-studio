@@ -5,8 +5,9 @@
   <name>GB Studio</name>
   <summary>A quick and easy to use drag and drop retro game creator for Game Boy</summary>
   <summary xml:lang="de">Ein schneller und einfach zu bedienender Drag-and-Drop-Retrospielentwickler für den Game Boy</summary>
-  <developer_name>Chris Maltby</developer_name>
-  <launchable type="desktop-id">dev.gbstudio.gb-studio.desktop</launchable>
+  <developer id="com.chrismaltby">
+    <name>Chris Maltby</name>
+  </developer>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <description>
@@ -74,7 +75,7 @@
         </ul>
       </description>
     </release>
-    <release version="v3.1.0" date="2022-09-11" type="stable">
+    <release version="3.1.0" date="2022-09-11" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.1.0</url>
       <description>
         <p>Added</p>
@@ -181,34 +182,34 @@
         </ul>
       </description>
     </release>
-    <release version="v3.0.3" date="2022-01-25" type="stable">
+    <release version="3.0.3" date="2022-01-25" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.0.3</url>
     </release>
-    <release version="v3.0.2" date="2021-12-23" type="stable">
+    <release version="3.0.2" date="2021-12-23" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.0.2</url>
     </release>
-    <release version="v3.0.1" date="2021-12-16" type="stable">
+    <release version="3.0.1" date="2021-12-16" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.0.1</url>
     </release>
-    <release version="v3.0.0" date="2021-12-16" type="stable">
+    <release version="3.0.0" date="2021-12-16" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.0.0</url>
     </release>
-    <release version="v2.0.0-beta5" date="2021-05-22" type="development">
+    <release version="2.0.0-beta5" date="2021-05-22" type="development">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v2.0.0-beta5</url>
     </release>
-    <release version="v1.2.2" date="2021-05-22" type="stable">
+    <release version="1.2.2" date="2021-05-22" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v1.2.2</url>
     </release>
-    <release version="v1.2.1" date="2020-01-16" type="stable">
+    <release version="1.2.1" date="2020-01-16" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v1.2.1</url>
     </release>
-    <release version="v1.2.0" date="2019-12-03" type="stable">
+    <release version="1.2.0" date="2019-12-03" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v1.2.0</url>
     </release>
-    <release version="v1.1.0" date="2019-05-18" type="stable">
+    <release version="1.1.0" date="2019-05-18" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v1.1.0</url>
     </release>
-    <release version="v1.0.0" date="2019-04-17" type="stable">
+    <release version="1.0.0" date="2019-04-17" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v1.0.0</url>
     </release>
   </releases>
@@ -224,6 +225,7 @@
     <control>keyboard</control>
   </recommends>
   <content_rating type="oars-1.1"/>
+  <launchable type="desktop-id">dev.gbstudio.gb-studio.desktop</launchable>
   <provides>
     <binary>gb-studio</binary>
   </provides>
