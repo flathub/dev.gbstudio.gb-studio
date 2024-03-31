@@ -7,6 +7,7 @@ base-version: '23.08'
 command: gb-studio
 finish-args:
   - --filesystem=host:rw
+  - --socket=pulseaudio
   - --socket=x11
   - --device=dri
   - --share=ipc
