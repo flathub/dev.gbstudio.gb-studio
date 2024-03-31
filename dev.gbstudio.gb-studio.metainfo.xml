@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<component type="desktop">
-  <!--Created with jdAppStreamEdit 8.0-->
+<component type="desktop-application">
+  <!--Created with jdAppStreamEdit 9.0-->
   <id>dev.gbstudio.gb-studio</id>
   <name>GB Studio</name>
   <summary>A quick and easy to use drag and drop retro game creator for Game Boy</summary>
@@ -30,6 +30,18 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="3.2.1" date="2024-02-29" type="stable">
+      <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.2.1</url>
+      <description>
+        <p>Fixed</p>
+        <ul>
+          <li>Fix sound effects previews in editor not matching how they sound in game</li>
+          <li>Fix crash when typing "!S" into dialogue events</li>
+          <li>Fix bug where engine plugins that include an engine.json with no fields causes all default engine settings to be hidden</li>
+          <li>Fix issue where transferring data over linkcable would cause game to hang</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.0" date="2024-01-29" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.2.0</url>
       <description>
