@@ -7,5 +7,5 @@ Comment[de]=Ein schneller und einfach zu bedienender Drag-and-Drop-Retrospielent
 Icon=dev.gbstudio.gb-studio
 TryExec=gb-studio
 Exec=gb-studio
-Categories=Game;
+Categories=Development;IDE;
 StartupNotify=true

@@ -230,7 +230,8 @@
   <url type="help">https://www.gbstudio.dev/docs/</url>
   <url type="vcs-browser">https://github.com/chrismaltby/gb-studio</url>
   <categories>
-    <category>Game</category>
+    <category>Development</category>
+    <category>IDE</category>
   </categories>
   <recommends>
     <control>pointing</control>
