@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <component type="desktop-application">
-  <!--Created with jdAppStreamEdit 9.0-->
+  <!--Created with jdAppStreamEdit 9.1-->
   <id>dev.gbstudio.gb-studio</id>
   <name>GB Studio</name>
   <summary>A quick and easy to use drag and drop retro game creator for Game Boy</summary>
@@ -20,16 +20,191 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image type="source">https://img.itch.zone/aW1nLzc2MzM3NzQuanBn/original/KA5qBk.jpg</image>
+      <image type="source">https://img.itch.zone/aW1nLzE0ODUzMjQ3LnBuZw==/original/qcTNPT.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://img.itch.zone/aW1hZ2UvNDA3NTgxLzc2MzM4NjkucG5n/347x500/9%2Bkk1H.png</image>
+      <image type="source">https://www.gbstudio.dev/img/home/screenshot_win_1_v4.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://img.itch.zone/aW1hZ2UvNDA3NTgxLzc2MzM4NzUucG5n/347x500/XuaKdf.png</image>
+      <image type="source">https://www.gbstudio.dev/img/home/screenshot_win_2_v4.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://www.gbstudio.dev/img/home/screenshot_win_3_v4.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://www.gbstudio.dev/img/home/screenshot_win_4_v4.png</image>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="4.0.0" date="2024-07-12" type="stable">
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>MAX_GLOBAL_VARS made available in <code>game_globals.h</code> for use in engine plugins</li>
+          <li>Add ability to set "On Load" script in "Game Data Save" event allowing you to reinitialise runtime changes such as palettes, sprites or tile data which are not stored when saving a game</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>Updated Simplified Chinese localisation. </li>
+          <li>Improve legibility of extra collision tiles by using a pixel font "Public Pixel" by GGBot</li>
+          <li>Updated Polish localisation.</li>
+          <li>Changed wording of batteryless save feature and added warning when feature is enabled to explain that only very specific cartridges will be supported</li>
+          <li>Updated Japanese localisation.</li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>Fix typo with white tile reference in engine UI </li>
+          <li>Fix issue where text codes would only autocomplete only using localised names. <code>!Font</code>, <code>!Speed</code>, <code>!Instant</code> and <code>!Cursor</code> will no list results regardless of user's language setting</li>
+          <li>Fix issue where rename button wouldn't appear for variables used in script values</li>
+          <li>Fix issue where actors referenced within scripts were not always being linked correctly</li>
+          <li>Fix issue where moving actors relatively off left or top of screen would cause coordinates to wrap, causing them to move in wrong direction</li>
+          <li>Fix issue in Japanese localisation where dialogue and expression text editors would show caret at incorrect location</li>
+          <li>Fix issue where save/load wouldn't work in game preview or web export when "Enable Batteryless Saving" was enabled, this setting is now ignored unless exporting a ROM file</li>
+        </ul>
+        <p>Removed</p>
+        <ul>
+          <li>Removed "Replace Default For Scene Type" checkbox from "Set Player Sprite Sheet" event which hasn't worked since the early 3.0 releases and contained multiple issues even when "working". Recommended replacement is to use scripts in Scene "On Init" and Save Data "On Load" to initialise player sprites based on variables</li>
+        </ul>
+        <p>Added</p>
+        <ul>
+          <li>Add ability to launch projectiles at a target actor</li>
+          <li>Add angle selector input showing degrees for GBVM angle values</li>
+          <li>Add support for atan2 function in math expressionss</li>
+          <li>Add magnitude field to camera shake event</li>
+          <li>Add checkbox to toggle if new animation should loop when using Set Actor Animation State events</li>
+          <li>Add shortcut to search scenes when in world mode by pressing <code>/</code></li>
+          <li>Add support from adding sound effects to a project by dragging files into project window (to match how this works for other asset types)</li>
+          <li>Add native support for Macs with Apple silicon without needing Rosetta</li>
+          <li>Add support for <code>&lt;&lt;</code> and <code>&gt;&gt;</code> operators in math expressionss</li>
+          <li>Add script debugger pane to World view, when game is run while this is open allows inspecting currently running scripts, setting breakpoints and updating live variable values</li>
+          <li>Add 'Color Only' mode. Roughly doubles the amount of tiles available for backgrounds and sprites though game will no longer run on original GB (DMG) hardware</li>
+          <li>Add event "Replace Tile At Position" and "Replace Tile From Sequence" to update background tiles, calling "Replace Tile From Sequence" repeatedly will cycle through animation frames</li>
+          <li>Add new asset folder "Tilesets" for use in "Replace Tile" events</li>
+          <li>Add ability for plugins to define additional scene types by including defined types (e.g. <code>"sceneTypes": [{"key": "RACING", "label": "Racing 2D"}]</code>) in <code>engine.json</code>s</li>
+          <li>Add ability for <code>Actor Move Relative</code>, <code>Actor Set Position Relative</code> and <code>If Actor At Position</code> to use variables as coordinate inputs</li>
+          <li>Add ability for almost every script event input that supports variables to use advanced values, click the button to the left of the value input to select value types, and combine them with math operators</li>
+          <li>Add ability to use variables within Menu and Choice eventss</li>
+          <li>Add stack preview mode to debugger</li>
+          <li>Add ability to set common tilesets between scenes, the common tiles will always be loaded in a consistent order between scenes sharing the same common tileset</li>
+          <li>Add ability to set Fade Speed as "Instant" when switching scenes, combine this with use of common tilesets in both scenes to enable seamless scene switching</li>
+          <li>Add ability to use variables, advanced values and expressions for coordinates in Change Scene event</li>
+          <li>Add ability to "Preview as Monochrome" when using mixed color mode by toggling button at bottom left of World view</li>
+          <li>Add ability to provide color PNGs for backgrounds and extract palettes automatically by either clicking "Auto Color" button in brush toolbar or using dropdown on Scene sidebar next to "Background Palettes" label</li>
+          <li>Add ability to override tile data for auto colored backgrounds by providing a matching \*.mono.png in your assets/backgrounds folder containing a monochrome version of the background. When provided this file will be used for tiles data and the regular image will be used to extract the color palettes (useful for mixed color mode games when auto palettes isn't creating tile data as you'd like automatically)</li>
+          <li>Add ability to edit waveforms in music editor using keyboard with ability to copy/pastes</li>
+          <li>Add ability to restore scene's default palettes in "Set Background Palettes" (especially useful when using auto palettes)</li>
+          <li>Add ability to set filename when creating a new song in music editor</li>
+          <li>Add context menus when right clicking on list items, or on scenes/actors/triggers in world view, or tiles on sprite editor view allowing renaming/deleting</li>
+          <li>Add ability to multi select scenes by shift click + dragging on world view or shift clicking in scenes list. When multiple scenes are selected they can be moved at the same time</li>
+          <li>Add ability to multi select script events by shift clicking the event's header. When multiple events are selected they can be moved, copied, grouped or deleted at the same time</li>
+          <li>Add ability for scenes, scripts, palettes and image/music assets to be organised into folders by naming them with path separators (<code>/</code> or <code>\</code> supported) e.g naming a scene <code>ui/menu/Inventory</code> will place it in a folder <code>ui/menu</code></li>
+          <li>Generate <code>game_globals.h</code> at compile time allowing access to global variables from C codes</li>
+          <li>Add support for using random numbers in GBVM RPN instructions</li>
+          <li>Add <code>Set Camera Position</code> event which can be used before scene fade in to instantly move camera to a new location</li>
+          <li>Add <code>Script Lock</code> and <code>Script Unlock</code> events allowing pausing other scripts and scene updates until the script is completed or unlocked</li>
+          <li>Add <code>Build Options</code> to "Settings" section with option to toggle if "Build Log" should be opened automatically on warnings</li>
+          <li>Add <code>Show Navigator</code> button to World toolbar if navigator is closed</li>
+          <li>Add ability to rename flags in Variable Flags Add/Clear/Set eventss</li>
+          <li>Add ability for variables to be used for X/Y coordinates in replace tile events</li>
+          <li>Add Russian localisation.</li>
+          <li>Add support for <code>isqrt</code> and <code>rnd</code> functions in math expressions</li>
+          <li>Add support for printf style tokens in text. <code>%D5$Variable</code> in text will output variable value with 5 characters and leading zeros e.g. <code>00042</code>, <code>%c$Variable</code> will output a character code based on variable value, <code>%t$Variable</code> will set text speed based on variable value, <code>%f$Variable</code> will change font based on variable value.</li>
+          <li>Add ability to change text cursor position in dialogue with "Set Cursor Position To" and "Move Cursor Position By" commands accessible by typing <code>!Cursor</code></li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>Updated to latest GBVM</li>
+          <li>Updated code generation to reduce access to stacks</li>
+          <li>Update Variable Uses sidebar to include any uses within Scriptss</li>
+          <li>Improved organisation of "Add Event" menu by grouping related event types</li>
+          <li>Updated German localisation.</li>
+          <li>Add Event Menu highlights matching text when searching</li>
+          <li>Updated to latest GBDK-2020</li>
+          <li>Dragging scenes now snaps to an 8px grid allowing easier alignment of scenes</li>
+          <li>Camera speed events updated to use pixels per frame values like actor movement, allowing more precise speed control and speeds faster than 1px per frame</li>
+          <li>Build information and warnings moved to "Build Log" section of Debugger</li>
+          <li>Updated Japanese localisation-</li>
+          <li>Allow event plugins to require("shared/lib/scriptValue/helpers") to access script value helpers</li>
+          <li>Update sidebar layout to prioritise giving scripts full sidebar width</li>
+          <li>Update sidebar to preserve scroll position when switching between scenes/actors/triggers/scripts</li>
+          <li>Update music editor to display compressed version of channel mute/visibility controls when not enough room to display fully</li>
+          <li>Keep preference for using Piano Roll or Tracker view when switching between songs in music editor rather than switching to Piano Roll view</li>
+          <li>Button events renamed to be more consistent</li>
+          <li>"Add Event" search updated to also include events that match group name when searching e.g. Searching 'Joypad' will include all Button events</li>
+          <li>Darkened conditional event header colours in dark theme</li>
+          <li>Patron list in credits now fetches most up to date list of members from GitHub if an internet connection is available</li>
+          <li>Previous "Name in Credits" tier members on Patreon are now still shown even after their membership has finished (your support is still very much appreciated!)</li>
+          <li>Update GBVM script view in debugger to show human readable labels</li>
+          <li>Updated Spanish localisation. </li>
+          <li>Updated Polish localisation. </li>
+          <li>Update script branch labels to include the condition logic if there is enough vertical space</li>
+          <li>Update script branch labels to stay on screen when scrolling through long scripts</li>
+          <li>Sprite editor updated to allow canvas min width of 8px with 8px width increments</li>
+          <li>When in collision tile drawing mode, actor sprite collision bounding boxes are now also visible</li>
+          <li>Sprite editor frames list now shows frame number</li>
+          <li>Improve layout of asset dropdowns when using folders</li>
+          <li>Dialogue event titles now show names of used variables in preview</li>
+          <li>Updated to GBDK version 4.3.0</li>
+          <li>When using "Color Only" mode, GB rom file extension changed to ".gbc"</li>
+          <li>Sprite editor frame numbers updated to start from frame "0" to match values used in "Set Animation Frame" event </li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>Fix localisation for default names of scenes, actors and triggers, new entities no longer hard coded to use English names</li>
+          <li>Fix issue where clicking on a scene would sometimes not cause it to become selected</li>
+          <li>Fix issue where dragging World using middle mouse button and releasing button with cursor outside of window would cause scrolling to still be enabled</li>
+          <li>Fix issue where double clicking scene search input would cause window to become maximised on macOS</li>
+          <li>Fix issue where pasting a "Call Script" event could sometimes incorrectly say script has been modified if project hadn't been saved and reloaded first</li>
+          <li>Fix issue where creating a new pattern in music editor would sometimes cause the other patterns in the song to play at a lower octave</li>
+          <li>Fix issue where variables in Dialogue and Math inputs could appear above script tabs</li>
+          <li>Fix calculation of last parallax layer height in editor inputs</li>
+          <li>Fix compiler warning when using some unary operators in While loops</li>
+          <li>Fix issue where fonts referenced from plugins were not always being included in compiled game</li>
+          <li>Fix issue where navigator split sizes would update every time a project was opened, causing unnecessary changes when project stored in version control system</li>
+          <li>Fix issue where some slower camera speeds weren't actually slower</li>
+          <li>Fix issue where setting "Show Connections" to "None" would prevent Player start position from being visible/draggable</li>
+          <li>Fix issue where note lengths for wave instruments in .uge files were not being stored according to file specification. This may cause some .uge files created with older builds of GB Studio to not sound correct. If you need to fix any .uge files, you can use this migrator tool</li>
+          <li>Fix issue where navigator sidebar could sometimes not be wide enough to show Add and Search buttons in section headers</li>
+          <li>Fix issue where document wasn't being flagged as modified until first change after migrating a project</li>
+          <li>Fix issue migrating "Engine Field Update" events</li>
+          <li>Fix issue where shift key no longer allowed line drawing for collisions and tile painting modes</li>
+          <li>Fix issue where using recursive scripts could cause UI to lock up while calculating scene sprite tile count and when building game.</li>
+          <li>Fix issue where custom scripts parameters were not always updating as parameters were updated</li>
+          <li>Fix issue where "If Variable Has Flag" was always falses</li>
+          <li>Fix issue where selecting effect column in music editor tracker would cause application to freezes</li>
+          <li>Fix issue preventing documentation being accessed from splash window</li>
+          <li>Fix "Add Flags" event tooltips localisation.</li>
+          <li>Fix issue where some sidebar inputs would appear above script tabs when scrolled</li>
+          <li>Fix rumble support when using MBC5 cartridges</li>
+          <li>Fix issue where empty project message would be positioned incorrectly if World view was scrolled or zoomed</li>
+          <li>Fix issue where World view minimum size wasn't taking into account navigator sidebar or debugger pane causing unnecessary scroll bars</li>
+          <li>Fix issue where Math Expression editor would incorrectly show spellcheck errors in function names</li>
+          <li>Fix issue building game when Super GB Mode was enabled before setting Color Mode to "Color Only"</li>
+          <li>Fix issue where using a plugin for a newer version of GB Studio would give an error saying the plugin was for an older version</li>
+          <li>Fix title for "Call Script" events when no script has been selected</li>
+          <li>Fix issue where remapping '\\' or 'n' in font would prevent line breaks from working</li>
+          <li>Fix issue where dragging frames in sprite editor would swap frame positions rather than shift them</li>
+          <li>Fix issue where searching through menus would use very low contrast text colours when using Dark theme</li>
+          <li>Fix issue preventing palette names from being over 25 characters long</li>
+          <li>Fix issue where sceneTypes in <code>engine.json</code> for plugins could cause duplicate scene types to appear</li>
+          <li>Fix issue using using non-English named variables and text codes in dialogue.</li>
+          <li>Fix issue where long branch labels would cause gaps in script editor</li>
+          <li>Fix issue where right click context menu would appear when trying to right click to remove collisions. Context menu now only appears when using select tool</li>
+          <li>Fix issue where text focus could get stuck in Build Log or GBVM script preview in debugger, preventing copy/paste from working</li>
+          <li>Fix issue where restoring scene from stack after using camera move events would cause previous scene to load without being locked to player</li>
+          <li>Fix issue where calling scripts to change sprites for multiple actors in a scene would only reserve tile memory for the first actor</li>
+          <li>Fix issue where too many tiles were being reserved for sprite changes in "Color Only" mode causing sprite VRAM to overflow</li>
+          <li>Fix issue where fonts referenced from GBVM scripts weren't being included in project</li>
+          <li>Correct gbvm VM_IF and VM_IF_CONST docs for param N</li>
+          <li>Fixed font alignment in asset dropdowns when using folders</li>
+          <li>Remove videos from New Project templates in splash screen as they cause Windows to crash</li>
+        </ul>
+        <p>Removed</p>
+        <ul>
+          <li>Removed "Build &amp; Run" section, all previous functionality is now available in "Build Log" section of Debugger</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.1" date="2024-02-29" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v3.2.1</url>
       <description>
