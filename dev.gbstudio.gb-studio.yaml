@@ -1,9 +1,9 @@
 id: dev.gbstudio.gb-studio
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '23.08'
+base-version: '24.08'
 command: gb-studio
 finish-args:
   - --filesystem=host:rw
@@ -16,8 +16,8 @@ modules:
   - name: gb-studio
     buildsystem: simple
     build-commands:
-      - chmod +x gb-studio-linux-x86_64.AppImage
-      - ./gb-studio-linux-x86_64.AppImage --appimage-extract
+      - chmod +x gb-studio-linux.AppImage
+      - ./gb-studio-linux.AppImage --appimage-extract
       - cp -r squashfs-root/usr/lib/gb-studio $FLATPAK_DEST
       - patch-desktop-filename $FLATPAK_DEST/gb-studio/resources/app.asar
       - install -Dm755 gb-studio -t $FLATPAK_DEST/bin
@@ -26,13 +26,13 @@ modules:
       - install -Dm644 dev.gbstudio.gb-studio.metainfo.xml -t $FLATPAK_DEST/share/metainfo
     sources:
       - type: file
-        url: https://github.com/chrismaltby/gb-studio/releases/download/v4.0.0/gb-studio-linux-x86_64.AppImage
-        sha256: b30019f9be9dbd4ab7f80fb25d0760e46fe1cc12006a2363f22ccc255f152f06
+        url: https://github.com/chrismaltby/gb-studio/releases/download/v4.1.3/gb-studio-linux.AppImage
+        sha256: 45c2e83d852571bd8e143ddf990766cc383a2854e3a9a527dffc80b9089b99ed
         x-checker-data:
           type: json
           url: https://api.github.com/repos/chrismaltby/gb-studio/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="gb-studio-linux-x86_64.AppImage") | .browser_download_url
+          url-query: .assets[] | select(.name=="gb-studio-linux.AppImage") | .browser_download_url
       - type: script
         dest-filename: gb-studio
         commands:
