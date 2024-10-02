@@ -16,8 +16,8 @@ modules:
   - name: gb-studio
     buildsystem: simple
     build-commands:
-      - chmod +x gb-studio-linux-x86_64.AppImage
-      - ./gb-studio-linux-x86_64.AppImage --appimage-extract
+      - chmod +x gb-studio-linux.AppImage
+      - ./gb-studio-linux.AppImage --appimage-extract
       - cp -r squashfs-root/usr/lib/gb-studio $FLATPAK_DEST
       - patch-desktop-filename $FLATPAK_DEST/gb-studio/resources/app.asar
       - install -Dm755 gb-studio -t $FLATPAK_DEST/bin
