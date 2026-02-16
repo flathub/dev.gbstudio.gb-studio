@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <component type="desktop-application">
-  <!--Created with jdAppStreamEdit 9.1-->
+  <!--Created with jdAppStreamEdit 9.2-->
   <id>dev.gbstudio.gb-studio</id>
   <name>GB Studio</name>
   <summary>A quick and easy to use drag and drop retro game creator for Game Boy</summary>
@@ -36,6 +36,15 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="4.2.1" date="2026-02-13" type="stable">
+      <description>
+        <p>Fixed</p>
+        <ul>
+          <li>Fix issue on Windows where attempting to build would show EPERM error (hopefully)</li>
+          <li>Fix issue on Windows where Linking step would show unexpected warning message spread over multiple lines</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.1.3" date="2024-10-02" type="stable">
       <description>
         <p>Changed</p>
