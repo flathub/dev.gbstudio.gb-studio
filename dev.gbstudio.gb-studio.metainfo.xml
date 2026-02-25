@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <component type="desktop-application">
   <!--Created with jdAppStreamEdit 9.2-->
   <id>dev.gbstudio.gb-studio</id>
@@ -36,8 +36,29 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="v4.2.2" date="2026-02-24">
-      <description></description>
+    <release version="4.2.2" date="2026-02-24" type="stable">
+      <url>https://github.com/chrismaltby/gb-studio/releases/tag/v4.2.2</url>
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>Add setting to control how many frames projectile collision checks are spread over</li>
+          <li>Add "Is Touching Wall" as a read only engine field for platformer scenes (gives access to <code>plat_wall_col</code>)</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>Deprecate legacy <code>scriptBuilder</code> plugin APIs. Usage now triggers a warning indicating the replacement function</li>
+          <li>Increased plugin compile timeout to 10 minutes (previously 1 minute)</li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>Fix issue where changing Music Tracker Keyboard Layout setting would not take effect until the project was reloaded</li>
+          <li>Fix Music Tracker keyboard shortcuts when using non-QWERTY layouts (QWERTZ, AZERTY, Dvorak, etc.)</li>
+          <li>Fix issue where off-screen actors would sometimes be visible on scene load</li>
+          <li>Fix issue where scenes with unicode character names could cause resources to be deleted when saving project</li>
+          <li>Fix issue where editing an FX Hammer file wouldn't correctly update the number of sound effects available</li>
+          <li>Fix issue where resizing a background image could cause builds to fail until the project was reloaded</li>
+        </ul>
+      </description>
     </release>
     <release version="4.2.1" date="2026-02-13" type="stable">
       <description>
