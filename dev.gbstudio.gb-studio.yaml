@@ -11,6 +11,7 @@ finish-args:
   - --socket=x11
   - --device=dri
   - --share=ipc
+  - --share=network
 
 modules:
   - name: gb-studio
