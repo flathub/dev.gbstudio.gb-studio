@@ -27,8 +27,8 @@ modules:
       - install -Dm644 dev.gbstudio.gb-studio.metainfo.xml -t $FLATPAK_DEST/share/metainfo
     sources:
       - type: file
-        url: https://github.com/chrismaltby/gb-studio/releases/download/v4.2.2/gb-studio-linux.AppImage
-        sha256: 1ac70df671720ea813120c7d6d023bf1b94324e9729e4657f37720a8b207910f
+        url: https://github.com/chrismaltby/gb-studio/releases/download/v4.3.0/gb-studio-linux.AppImage
+        sha256: 977f4bf4d693002e607fdd40056958b37c2631aaa4f5e24abb0d5de95e1d981a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/chrismaltby/gb-studio/releases/latest

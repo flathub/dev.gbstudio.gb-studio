@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <!--Created with jdAppStreamEdit 9.2-->
   <id>dev.gbstudio.gb-studio</id>
@@ -36,6 +36,9 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="v4.3.0" date="2026-06-08">
+      <description></description>
+    </release>
     <release version="4.2.2" date="2026-02-24" type="stable">
       <url>https://github.com/chrismaltby/gb-studio/releases/tag/v4.2.2</url>
       <description>
